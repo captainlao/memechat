@@ -1,2 +1,0 @@
-Sockets.io:
-    - basic tutorial: https://socket.io/get-started/chat/

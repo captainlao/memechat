@@ -2,6 +2,13 @@
     "name": "memechat",
     "version": "0.0.1",
     "description": "The best chat for memes anywhere",
+    "scripts": {
+        "start": "node server/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
+        "node": "8.9.1"
+    },
     "dependencies": {
         "express": "^4.16.2",
         "socket.io": "^2.0.4"
