@@ -1,4 +1,5 @@
 var generateMessage = (from, text) => {
+    // Return message object
     return {
         from,
         text,

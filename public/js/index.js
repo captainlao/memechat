@@ -12,4 +12,23 @@ socket.on('disconnect', function() {
 
 socket.on('newMessage', function(message) {
     console.log(message);
+
+    // Create new list element and append to displayed ordered list
+    var li = jQuery('<li></li>');
+    li.text(message.from + ': ' + message.text);
+    
+    jQuery('#messages').append(li);
+});
+
+jQuery('#message-form').on('submit', function (e) {
+    // Prevent default form submit behaivor
+    e.preventDefault();
+
+    socket.emit('createMessage', {
+       from: 'User',
+       text: jQuery('[name=message]').val()
+    }, function () {
+        // This fires when acknowledgement arrives from server
+
+    });
 });

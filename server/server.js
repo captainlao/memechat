@@ -26,14 +26,15 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
     console.log('New user connected');
     
-    socket.emit('newMessage', generateMessage('Admin', 'Welcome!'));
+    socket.emit('newMessage', generateMessage('Admin', 'Type something to start chatting!'));
 
     // Emits newMessage to all other users 
     socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user connected'));
 
     // Listen for an emitted message from client and emit back to all connections
-    socket.on('createMessage', (message) => {
+    socket.on('createMessage', (message, acknowledgement) => {
         console.log(message);
+        acknowledgement();  // Sends back to front end to confirm received message
 
         // createAt set here for security 
         io.emit('newMessage', generateMessage(message.from, message.text));
