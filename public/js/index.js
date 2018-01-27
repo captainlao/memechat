@@ -24,11 +24,14 @@ jQuery('#message-form').on('submit', function (e) {
     // Prevent default form submit behaivor
     e.preventDefault();
 
+    var messageTextbox = jQuery('[name=message]');
+
     socket.emit('createMessage', {
        from: 'User',
-       text: jQuery('[name=message]').val()
+       text: messageTextbox.val()
     }, function () {
-        // This fires when acknowledgement arrives from server
-
+        // This fires when acknowledgement arrives back from server
+        // Clear message if successful
+        messageTextbox.val('');
     });
 });

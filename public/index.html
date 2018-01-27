@@ -3,19 +3,28 @@
   <head>
     <title>memechat</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
   
-  <body>
-    <p>Welcome to memechat :3</p>
+  <body class="chat">
 
-    <!-- Displayed messages -->
-    <ol id="messages"></ol>
+    <div class="chat__sidebar">
+      <h3>People</h3>
+      <div id="users"></div>
+    </div>
 
-    <!-- Message form -->
-    <form id="message-form">
-      <input name="message" type="text" placeholder="Message"/>
-      <button>Send</button>
-    </form>
+    <div class="chat__main">
+      <!-- Displayed messages -->
+      <ol id="messages" class="chat__messages"></ol>
+
+      <div class="chat__footer">
+        <!-- Message form -->
+        <form id="message-form">
+          <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+          <button>Send</button>
+        </form>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/libs/jquery-3.3.1.min.js"></script>
