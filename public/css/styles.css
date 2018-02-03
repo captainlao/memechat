@@ -1,5 +1,11 @@
 /* From course template */
 
+.chat__header {
+   display: flex;
+   flex-direction: row;
+   flex-grow: 1;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -171,7 +177,7 @@
   }
   
   .message__title span {
-    color: #999;
+    color: #999; 
   }
   
   @media (max-width: 600px) {
@@ -180,7 +186,7 @@
     }
   
     .chat__sidebar {
-      display: none;
+      display: flex;
     }
   
     .chat__footer {

@@ -19,6 +19,8 @@ var io = socketIO(server);
 
 // Serve up our index page using static middleware
 // (removes need to specify exact file, as we serve up entire public/)
+// Essentially takes the request from that location and redirects it, hiding
+// the true location from the user.
 app.use(express.static(publicPath));
 
 // Listens for a connection to server
