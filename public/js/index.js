@@ -1,3 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '../css/styles.css';
+import App from '../components/App';
+
+/*
 // Client continually attempts to connect as sockets are persisted communication
 var socket = io();
 
@@ -35,3 +41,6 @@ jQuery('#message-form').on('submit', function (e) {
         messageTextbox.val('');
     });
 });
+*/
+
+ReactDOM.render(<App />, document.getElementById('root'));

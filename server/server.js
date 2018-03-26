@@ -4,6 +4,7 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
+const router = require('./routes/routes');
 
 // Include generateMessage function to build messages
 const {generateMessage} = require('./utils/message');
@@ -18,13 +19,11 @@ var server = http.createServer(app);
 var io = socketIO(server);
 
 // Serve up our index page using static middleware
-// (removes need to specify exact file, as we serve up entire public/)
-// Essentially takes the request from that location and redirects it, hiding
-// the true location from the user.
 app.use(express.static(publicPath));
 
+app.use('/', router);
+
 // Listens for a connection to server
-// When client establishes connection, callback fires off passing in the web socket they are communicating on
 io.on('connection', (socket) => {
     console.log('New user connected');
     
@@ -36,9 +35,8 @@ io.on('connection', (socket) => {
     // Listen for an emitted message from client and emit back to all connections
     socket.on('createMessage', (message, acknowledgement) => {
         console.log(message);
-        acknowledgement();  // Sends back to front end to confirm received message
+        acknowledgement();  
 
-        // createAt set here for security 
         io.emit('newMessage', generateMessage(message.from, message.text));
     });
 

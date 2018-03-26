@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>memechat</title>
@@ -8,29 +8,12 @@
   
   <body class="chat">
 
-    <div class="chat__sidebar">
-      <div class='chat__header'>   
-        <h3>People</h3>
-        <button>S</button>
-      </div>
-      <div id="users"></div>
-    </div>
-
-    <div class="chat__main">
-      <!-- Displayed messages -->
-      <ol id="messages" class="chat__messages"></ol>
-
-      <div class="chat__footer">
-        <!-- Message form -->
-        <form id="message-form">
-          <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
-          <button>Send</button>
-        </form>
-      </div>
-    </div>
+    <!-- Main element that App will populate -->
+    <div id="root"> </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/libs/jquery-3.3.1.min.js"></script>
-    <script src="/js/index.js"></script>
+    <!--<script src="/js/index.js"></script>-->
+    <script src="js/bundle.js"></script>
   </body>
 </html>
