@@ -5,13 +5,9 @@ import Sidebar from './Sidebar';
 import Chatroom from './Chatroom';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
-      <div>
+      <div className="chat">
         <Sidebar />
         <Chatroom />
       </div>

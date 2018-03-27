@@ -7,7 +7,7 @@ const socketIO = require('socket.io');
 const router = require('./routes/routes');
 
 // Include generateMessage function to build messages
-const {generateMessage} = require('./utils/message');
+//const {generateMessage} = require('./utils/message');
 
 // Normalize destination path so we don't have to go in and out of folders
 const publicPath = path.join(__dirname, '../public');
@@ -27,18 +27,18 @@ app.use('/', router);
 io.on('connection', (socket) => {
     console.log('New user connected');
     
-    socket.emit('newMessage', generateMessage('Admin', 'Type something to start chatting!'));
+    //socket.emit('newMessage', generateMessage('Admin', 'Type something to start chatting!'));
 
     // Emits newMessage to all other users 
-    socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user connected'));
+    //socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user connected'));
 
     // Listen for an emitted message from client and emit back to all connections
-    socket.on('createMessage', (message, acknowledgement) => {
+    /*socket.on('createMessage', (message, acknowledgement) => {
         console.log(message);
         acknowledgement();  
 
         io.emit('newMessage', generateMessage(message.from, message.text));
-    });
+    });*/
 
     // Socket listens for client disconnect
     socket.on('disconnect', () => {
